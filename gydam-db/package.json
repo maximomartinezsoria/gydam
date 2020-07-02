@@ -1,0 +1,32 @@
+{
+  "name": "gydam-db",
+  "version": "1.0.0",
+  "description": "IoT platform - DB Module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmartinezsoria/gydam.git"
+  },
+  "author": "Maximo Martinez Soria <maximo.martinezsoria@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mmartinezsoria/gydam/issues"
+  },
+  "homepage": "https://github.com/mmartinezsoria/gydam#readme",
+  "devDependencies": {
+    "eslint": "^7.3.1",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
+  },
+  "dependencies": {
+    "pg": "^8.2.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.2.4"
+  }
+}
