@@ -59,7 +59,7 @@ test.beforeEach(async () => {
 
   // Model findByUuid Stub
   AgentStub.findByUuid = sandbox.stub()
-  AgentStub.findByUuid.withArgs(uuidArgs).returns(Promise.resolve(agentFixtures.byUuid(uuid)))
+  AgentStub.findByUuid.withArgs(uuid).returns(Promise.resolve(agentFixtures.byUuid(uuid)))
 
   // Model create Stub
   AgentStub.create = sandbox.stub()
@@ -75,11 +75,11 @@ test.beforeEach(async () => {
   AgentStub.findAll.withArgs(connectedArgs).returns(Promise.resolve(agentFixtures.connected))
   AgentStub.findAll.withArgs(usernameArgs).returns(Promise.resolve(agentFixtures.username))
 
-  const setupDatabse = proxyquire('../', {
+  const setupDatabase = proxyquire('../', {
     './models/agent': () => AgentStub,
     './models/metric': () => MetricStub
   })
-  db = await setupDatabse(config)
+  db = await setupDatabase(config)
 })
 
 test.afterEach(_ => {
