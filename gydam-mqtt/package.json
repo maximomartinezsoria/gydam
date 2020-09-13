@@ -1,0 +1,37 @@
+{
+  "name": "gydam-mqtt",
+  "version": "1.0.0",
+  "description": "IoT platform - MQTT Module",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=production node server.js",
+    "start-dev": "DEBUG=gydam:* nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmartinezsoria/gydam.git"
+  },
+  "author": "Maximo Martinez Soria <maximo.martinezsoria@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mmartinezsoria/gydam/issues"
+  },
+  "devDependencies": {
+    "eslint": "^7.4.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "aedes": "^0.42.4",
+    "aedes-persistence-redis": "^7.0.0",
+    "chalk": "^4.1.0",
+    "debug": "^4.1.1",
+    "redis": "^3.0.2",
+    "gydam-db": "file:../gydam-db",
+    "gydam-utils": "file:../gydam-utils"
+  }
+}
