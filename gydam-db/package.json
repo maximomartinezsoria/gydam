@@ -1,10 +1,12 @@
 {
   "name": "gydam-db",
   "version": "1.0.0",
+  "private": true,
   "description": "IoT platform - DB Module",
   "main": "index.js",
   "scripts": {
     "setup": "DEBUG=gydam:* node setup",
+    "start": "NODE_ENV=production node server.js",
     "test": "DEBUG=gydam:* nyc --reporter=lcov ava --verbose"
   },
   "repository": {
@@ -37,6 +39,7 @@
     "inquirer": "^7.3.0",
     "pg": "^8.2.1",
     "pg-hstore": "^2.3.3",
-    "sequelize": "^6.2.4"
+    "sequelize": "^6.2.4",
+    "gydam-utils": "file:../gydam-utils"
   }
 }

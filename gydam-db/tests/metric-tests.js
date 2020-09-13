@@ -3,8 +3,7 @@
 const test = require('ava')
 const proxyquire = require('proxyquire')
 const sinon = require('sinon')
-const metricFixtures = require('./fixtures/metric')
-const agentFixtures = require('./fixtures/agent')
+const { metricFixtures, agentFixtures } = require('gydam-utils/fixtures')
 
 const uuid = 'yyy-yyy-yyy'
 const type = 'type'
