@@ -1,0 +1,48 @@
+{
+  "name": "gydam-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=production node server.js",
+    "start-dev": "DEBUG=gydam:* nodemon server.js",
+    "build": "webpack --mode production",
+    "watch": "webpack-dev-server --open --port 5050 --host 127.0.0.1 --mode development"
+  },
+  "keywords": [],
+  "author": "Maximo Martinez Soria <maximo.martinezsoria@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.11.4",
+    "@babel/plugin-transform-runtime": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "eslint": "^7.7.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-standard": "^4.0.1",
+    "html-webpack-plugin": "^4.3.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.11.2",
+    "chalk": "^4.1.0",
+    "chart.js": "^2.9.3",
+    "debug": "^4.1.1",
+    "express": "^4.17.1",
+    "gydam-agent": "file:../gydam-agent",
+    "gydam-utils": "file:../gydam-utils",
+    "isomorphic-fetch": "^2.2.1",
+    "react": "^16.13.1",
+    "react-chartjs-2": "^2.10.0",
+    "react-dom": "^16.13.1",
+    "socket.io": "^2.3.0",
+    "socket.io-client": "^2.3.0"
+  }
+}
