@@ -21,7 +21,7 @@ class GydamAgent extends EventEmitter {
   constructor (opts) {
     super()
 
-    this._options = { ...options, opts }
+    this._options = { ...options, ...opts }
     this._started = false
     this._timer = null
     this._client = null

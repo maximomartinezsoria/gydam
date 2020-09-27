@@ -65,7 +65,7 @@ aedes.on('clientDisconnect', async client => {
     try {
       await Agent.createOrUpdate(agent)
     } catch (err) {
-      return handleError(e)
+      return handleError(err)
     }
   }
 
@@ -91,12 +91,12 @@ aedes.on('publish', async (packet, client) => {
       debug(`Payload: ${packet.payload}`)
       break
 
-    case 'agent/message':
+    case 'agent/message': {
       debug(`Payload: ${packet.payload}`)
       const payload = parsePayload(packet.payload)
 
       let agent
-      if (payload) {
+      if (payload.agent) {
         payload.agent.connected = true
 
         try {
@@ -134,8 +134,7 @@ aedes.on('publish', async (packet, client) => {
 
         debug(`Metric ${m.id} saved on agent ${agent.uuid}`)
       })
-
-      break
+    }
   }
 })
 
