@@ -22,6 +22,7 @@ const config = {
   username: process.env.DB_USER || 'gydam',
   password: process.env.DB_PASS || 'gydam',
   host: process.env.DB_HOST || '127.0.0.1',
+  port: process.env.DB_PORT || 5432,
   dialect: 'postgres',
   logging: s => debug(s)
 }
@@ -31,7 +32,7 @@ let Agent, Metric
 const aedes = require('aedes')({
   persistence: redisPersistence({
     port: 6379,
-    host: '127.0.0.1',
+    host: process.env.REDIS_HOST || '127.0.0.1',
     family: 4,
     maxSessionDelivery: 100
   })

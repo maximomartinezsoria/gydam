@@ -1,0 +1,63 @@
+version: '3.7'
+services:
+    redis:
+        image: redis
+        restart: always
+        ports:
+            - 6379:6379
+        networks: 
+            - gydam-network
+    utils:
+        build: ./gydam-utils
+        volumes: 
+            - utils:/usr/gydam-utils/
+    postgres:
+        image: postgres
+        environment: 
+            POSTGRES_PASSWORD: 'gydam'
+            POSTGRES_USER: 'gydam'
+        networks:
+            - gydam-network
+        volumes:
+            - postgres:/var/lib/postgresql/data
+    db:
+        build: ./gydam-db
+        volumes: 
+            - db:/usr/gydam-db/
+        depends_on: 
+            - utils
+            - postgres
+        networks:
+            - gydam-network
+    mqtt:
+        build: ./gydam-mqtt
+        depends_on: 
+            - redis
+            - db
+        environment: 
+            REDIS_HOST: redis
+            DB_HOST: postgres
+        networks:
+            - gydam-network
+        volumes: 
+            - db:/usr/gydam-db/
+            - utils:/usr/gydam-utils/
+    agent:
+        build: ./gydam-agent
+        depends_on: 
+            - utils
+        networks: 
+            - gydam-network
+        volumes: 
+            - agent:/usr/gydam-agent/
+            - utils:/usr/gydam-utils/
+    
+networks: 
+    gydam-network:
+        driver: bridge
+
+volumes:
+    agent:
+    utils:
+    db:
+    postgres:
