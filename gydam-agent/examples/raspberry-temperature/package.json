@@ -1,0 +1,16 @@
+{
+  "name": "gydam-raspberry-temperature",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "ds18b20-raspi": "^0.3.5",
+    "gydam-agent": "file:../gydam/gydam-agent"
+  },
+  "description": ""
+}
