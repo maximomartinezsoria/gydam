@@ -68,4 +68,4 @@ Once you've done everything in this guide, you can start the program by simply r
 npm start
 ```
 
-You could use either `gydam-cli` or `gydam-web` to see the data.
+You can use `gydam-cli` to see the data.
