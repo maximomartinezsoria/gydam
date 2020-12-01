@@ -6,7 +6,6 @@
   "main": "index.js",
   "scripts": {
     "setup": "DEBUG=gydam:* node setup",
-    "start": "NODE_ENV=production node server.js",
     "test": "DEBUG=gydam:* nyc --reporter=lcov ava --verbose"
   },
   "repository": {

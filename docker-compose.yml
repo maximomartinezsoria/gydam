@@ -16,6 +16,8 @@ services:
         environment: 
             POSTGRES_PASSWORD: 'gydam'
             POSTGRES_USER: 'gydam'
+        ports:
+            - 5432:5432
         networks:
             - gydam-network
         volumes:
@@ -27,29 +29,37 @@ services:
         depends_on: 
             - utils
             - postgres
+            - redis
+        environment: 
+            DB_HOST: postgres
         networks:
             - gydam-network
+        command: npm run setup -- -y
+    agent:
+        build: ./gydam-agent
+        depends_on: 
+            - db
+        networks: 
+            - gydam-network
+        volumes: 
+            - agent:/usr/gydam-agent/
+            - utils:/usr/gydam-utils/
     mqtt:
         build: ./gydam-mqtt
         depends_on: 
-            - redis
-            - db
+            - agent
         environment: 
             REDIS_HOST: redis
             DB_HOST: postgres
         networks:
             - gydam-network
+        ports:
+            - 1883:1883
+            - 3000:3000
+            - 4000:4000
+            - 8883:8883
         volumes: 
             - db:/usr/gydam-db/
-            - utils:/usr/gydam-utils/
-    agent:
-        build: ./gydam-agent
-        depends_on: 
-            - utils
-        networks: 
-            - gydam-network
-        volumes: 
-            - agent:/usr/gydam-agent/
             - utils:/usr/gydam-utils/
     
 networks: 
