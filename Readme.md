@@ -10,4 +10,4 @@ docker-compose up
 
 Use `gydam-agent` to create your own projects with this platform.
 
-Take a look at [raspberry-temperature](https://github.com/maximomartinezsoria/gydam/tree/master/gydam-agent/examples/raspberry-temperature) example. Here the platform is reading temperature from a `ds18b20` sensor connected to a Raspberry Pi 4 and sending it through the MQTT server.
+Take a look at [raspberry-temperature](https://github.com/maximomartinezsoria/gydam/tree/master/gydam-agent/examples/raspberry-temperature) example. Where the platform is reading temperature from a `ds18b20` sensor connected to a Raspberry Pi 4 and sending it through the MQTT server.
